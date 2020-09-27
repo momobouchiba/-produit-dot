@@ -1,0 +1,41 @@
+PROCEDURE dot_product(V1,V2 : ARRAY_OF INTEGER[100],n : INTEGER,VAR res : INTEGER)
+VAR
+    i : INTEGER;
+    ps : INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        ps +=V1[i]*V2[i];
+    END_FOR
+    
+    IF (ps = 0) THEN
+        res := 1;
+    ELSE
+        res := -1;
+    END_IF
+END
+ALGORITHM Orthogonal_vectors
+VAR
+    V1 : ARRAY_OF INTEGER[100];
+    V2 : ARRAY_OF INTEGER[100];
+    n  : INTEGER;
+    res: INTEGER:= -1; //-1 not orthogonal 
+                        // 1 orthogonal
+BEGIN
+    Write("give the n elements of the vector")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("give the element to insert in the first vector")
+        Read(v1[i])
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("give the element to insert in the second vector")
+        Read(v2[i])
+    END_FOR
+    dot_product(V1,V2,n,res);
+    
+    IF (res = 1) THEN
+        Write(" The two vectors are orthogonal");
+    ELSE
+        Write(" The two vectors are NOT orthogonal");
+    END_IF
+END
